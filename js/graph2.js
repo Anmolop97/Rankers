@@ -99,6 +99,7 @@ function renderGraph2() {
       const p = getPlotDims();
 
       // Dynamic Grid Calculation
+      const isFS = (typeof document !== 'undefined' && !!document.fullscreenElement) || (w >= 1150);
       const spanX = p.xMax - p.xMin;
       const spanY = p.yMax - p.yMin;
       const zoomLevel = 9.0 / (spanX || 1);
@@ -231,7 +232,7 @@ function renderGraph2() {
       ctx.strokeRect(p.padL + 3.5, p.padT + 3.5, p.plotW - 7, p.plotH - 7);
 
       // Printed Header Stamp on Top Margin
-      ctx.font = 'bold 11px Inter, sans-serif';
+      ctx.font = isFS ? 'bold 13px Inter, sans-serif' : 'bold 11px Inter, sans-serif';
       ctx.fillStyle = textStroke;
       ctx.textAlign = 'left';
       ctx.fillText('PHYSICS PRACTICAL GRAPH SHEET • EXP NO. 05 (STEFAN-BOLTZMANN CONSTANT)', p.padL + 4, p.padT - 13);
@@ -240,7 +241,7 @@ function renderGraph2() {
 
       // 4-Quadrant Watermark Labels
       if (viewMode === '4quadrant') {
-        ctx.font = 'bold 12px Inter, sans-serif';
+        ctx.font = isFS ? 'bold 14px Inter, sans-serif' : 'bold 12px Inter, sans-serif';
         ctx.fillStyle = currentTheme === 'green' ? 'rgba(34, 139, 34, 0.35)' : (currentTheme === 'blue' ? 'rgba(3, 105, 161, 0.35)' : 'rgba(148, 163, 184, 0.25)');
         ctx.textAlign = 'right';
         ctx.fillText('QUADRANT I (+X, +Y)', w - p.padR - 12, p.padT + 22);
@@ -287,13 +288,13 @@ function renderGraph2() {
 
       // Origin label if in view
       if (originX >= p.padL && originX <= w - p.padR && originY >= p.padT && originY <= h - p.padB) {
-        ctx.font = 'bold 11px "Fira Code", monospace';
+        ctx.font = isFS ? 'bold 13px "Fira Code", monospace' : 'bold 11px "Fira Code", monospace';
         ctx.textAlign = 'right';
         ctx.fillText('O (0,0)', originX - 6, originY + 16);
       }
 
       // Ticks & Labels (High-contrast, Large & Legible)
-      ctx.font = 'bold 13px "Fira Code", monospace';
+      ctx.font = isFS ? 'bold 15px "Fira Code", monospace' : 'bold 13px "Fira Code", monospace';
       ctx.fillStyle = currentTheme === 'green' ? '#14532d' : '#94a3b8';
       ctx.textAlign = 'center';
 
@@ -303,7 +304,7 @@ function renderGraph2() {
         const sx = toScreenX(x);
         if (sx < p.padL || sx > w - p.padR) continue;
         ctx.beginPath(); ctx.moveTo(sx, xAxisY - 4); ctx.lineTo(sx, xAxisY + 4); ctx.stroke();
-        ctx.fillText(Number(x.toFixed(2)).toString(), sx, xAxisY + 19);
+        ctx.fillText(Number(x.toFixed(2)).toString(), sx, xAxisY + (isFS ? 22 : 19));
       }
 
       // Y Numbers
@@ -317,12 +318,12 @@ function renderGraph2() {
       }
 
       // Axis Labels (Large & Bold)
-      ctx.font = 'bold 14px Inter, sans-serif';
+      ctx.font = isFS ? 'bold 16px Inter, sans-serif' : 'bold 14px Inter, sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText('+X: Log₁₀(T)  [Filament Temp (K)]  →', w - p.padR - 120, xAxisY - 12);
+      ctx.fillText('+X: Log₁₀(T)  [Filament Temp (K)]  →', w - p.padR - (isFS ? 140 : 120), xAxisY - (isFS ? 14 : 12));
 
       ctx.save();
-      ctx.translate(yAxisX - 16, p.padT + 70);
+      ctx.translate(yAxisX - (isFS ? 20 : 16), p.padT + (isFS ? 85 : 70));
       ctx.rotate(-Math.PI / 2);
       ctx.fillText('+Y: Log₁₀(P)  [Radiated Power (W)]  →', 0, 0);
       ctx.restore();
@@ -391,57 +392,61 @@ function renderGraph2() {
       if (isDeepZoom) {
         // Base Tag: Δx = x2 - x1 (Only in Deep Zoom >= 160%)
         const midX = (sAx + sBx) / 2;
-        const baseTagY = sAy + 26;
+        const baseTagY = sAy + (isFS ? 30 : 26);
         ctx.fillStyle = currentTheme === 'green' ? 'rgba(255, 255, 255, 0.98)' : 'rgba(15, 23, 42, 0.98)';
         ctx.strokeStyle = '#059669';
         ctx.lineWidth = 1.6;
         const baseTxt = `Δx = x₂ - x₁ = ${handleB.x.toFixed(2)} - ${handleA.x.toFixed(2)} = ${deltaXVal}`;
-        ctx.font = 'bold 13px "Fira Code", monospace';
-        const baseW = ctx.measureText(baseTxt).width + 18;
-        ctx.fillRect(midX - baseW / 2, baseTagY - 14, baseW, 25);
-        ctx.strokeRect(midX - baseW / 2, baseTagY - 14, baseW, 25);
+        ctx.font = isFS ? 'bold 15px "Fira Code", monospace' : 'bold 13px "Fira Code", monospace';
+        const baseW = ctx.measureText(baseTxt).width + (isFS ? 22 : 18);
+        const baseH = isFS ? 28 : 25;
+        ctx.fillRect(midX - baseW / 2, baseTagY - baseH / 2, baseW, baseH);
+        ctx.strokeRect(midX - baseW / 2, baseTagY - baseH / 2, baseW, baseH);
         ctx.fillStyle = '#065f46';
         ctx.textAlign = 'center';
-        ctx.fillText(baseTxt, midX, baseTagY + 4);
+        ctx.fillText(baseTxt, midX, baseTagY + (isFS ? 5 : 4));
 
         // Height Tag: Δy = y2 - y1 (Only in Deep Zoom >= 160%)
         const midY = (sAy + sBy) / 2;
-        const heightTagX = sBx + 18;
+        const heightTagX = sBx + (isFS ? 22 : 18);
         const heightTxt = `Δy = y₂ - y₁ = ${handleB.y.toFixed(2)} - (${handleA.y.toFixed(2)}) = ${deltaYVal}`;
-        ctx.font = 'bold 13px "Fira Code", monospace';
-        const heightW = ctx.measureText(heightTxt).width + 18;
+        ctx.font = isFS ? 'bold 15px "Fira Code", monospace' : 'bold 13px "Fira Code", monospace';
+        const heightW = ctx.measureText(heightTxt).width + (isFS ? 22 : 18);
+        const heightH = isFS ? 28 : 25;
         ctx.fillStyle = currentTheme === 'green' ? 'rgba(255, 255, 255, 0.98)' : 'rgba(15, 23, 42, 0.98)';
         ctx.strokeStyle = '#059669';
         ctx.lineWidth = 1.6;
-        ctx.fillRect(heightTagX, midY - 13, heightW, 25);
-        ctx.strokeRect(heightTagX, midY - 13, heightW, 25);
+        ctx.fillRect(heightTagX, midY - heightH / 2, heightW, heightH);
+        ctx.strokeRect(heightTagX, midY - heightH / 2, heightW, heightH);
         ctx.fillStyle = '#065f46';
         ctx.textAlign = 'left';
-        ctx.fillText(heightTxt, heightTagX + 9, midY + 5);
+        ctx.fillText(heightTxt, heightTagX + 9, midY + (isFS ? 5 : 5));
 
         // Slope Hypotenuse Tag (Full Large Tag in Deep Zoom)
         const hypX = (sAx + sBx) / 2 - 35;
         const hypY = (sAy + sBy) / 2 - 20;
         const hypTxt = `Slope (n) = Δy/Δx = ${slopeVal}`;
-        ctx.font = 'bold 13.5px "Fira Code", monospace';
-        const hypW = ctx.measureText(hypTxt).width + 18;
+        ctx.font = isFS ? 'bold 15.5px "Fira Code", monospace' : 'bold 13.5px "Fira Code", monospace';
+        const hypW = ctx.measureText(hypTxt).width + (isFS ? 22 : 18);
+        const hypH = isFS ? 28 : 25;
         ctx.fillStyle = '#059669';
-        ctx.fillRect(hypX - hypW / 2, hypY - 13, hypW, 25);
+        ctx.fillRect(hypX - hypW / 2, hypY - hypH / 2, hypW, hypH);
         ctx.fillStyle = '#ffffff';
         ctx.textAlign = 'center';
-        ctx.fillText(hypTxt, hypX, hypY + 5);
+        ctx.fillText(hypTxt, hypX, hypY + (isFS ? 5 : 5));
       } else {
         // Zoom-out Mode (< 160%): Clean, Compact Slope Tag only
         const hypX = (sAx + sBx) / 2;
-        const hypY = (sAy + sBy) / 2 - 12;
+        const hypY = (sAy + sBy) / 2 - (isFS ? 14 : 12);
         const hypTxt = `n = ${slopeVal}`;
-        ctx.font = 'bold 11px "Fira Code", monospace';
-        const hypW = ctx.measureText(hypTxt).width + 12;
+        ctx.font = isFS ? 'bold 13.5px "Fira Code", monospace' : 'bold 11px "Fira Code", monospace';
+        const hypW = ctx.measureText(hypTxt).width + (isFS ? 16 : 12);
+        const hypH = isFS ? 22 : 18;
         ctx.fillStyle = '#059669';
-        ctx.fillRect(hypX - hypW / 2, hypY - 9, hypW, 18);
+        ctx.fillRect(hypX - hypW / 2, hypY - hypH / 2, hypW, hypH);
         ctx.fillStyle = '#ffffff';
         ctx.textAlign = 'center';
-        ctx.fillText(hypTxt, hypX, hypY + 4);
+        ctx.fillText(hypTxt, hypX, hypY + (isFS ? 5 : 4));
       }
 
       // Plot Experimental 12 Data Points (Adaptive Level-of-Detail: >= 160% Zoom vs < 160% Zoom)
@@ -453,18 +458,18 @@ function renderGraph2() {
           // DEEP ZOOM (>= 160%): Large, Bold, Staggered Badges
           ctx.strokeStyle = '#dc2626';
           ctx.lineWidth = 2.4;
-          ctx.beginPath(); ctx.arc(sx, sy, 8, 0, Math.PI * 2); ctx.stroke();
+          ctx.beginPath(); ctx.arc(sx, sy, isFS ? 9.5 : 8, 0, Math.PI * 2); ctx.stroke();
           
           ctx.fillStyle = '#dc2626';
-          ctx.beginPath(); ctx.arc(sx, sy, 4, 0, Math.PI * 2); ctx.fill();
+          ctx.beginPath(); ctx.arc(sx, sy, isFS ? 4.8 : 4, 0, Math.PI * 2); ctx.fill();
 
           const ptLabel = `P${pt.no}(${pt.logT.toFixed(2)}, ${pt.logP.toFixed(2)})`;
-          ctx.font = 'bold 12.5px "Fira Code", monospace';
-          const ptLabelW = ctx.measureText(ptLabel).width + 12;
-          const ptLabelH = 22;
+          ctx.font = isFS ? 'bold 14.5px "Fira Code", monospace' : 'bold 12.5px "Fira Code", monospace';
+          const ptLabelW = ctx.measureText(ptLabel).width + (isFS ? 16 : 12);
+          const ptLabelH = isFS ? 26 : 22;
 
           const isRight = (idx % 2 === 0);
-          const ptLabelX = isRight ? (sx + 14) : (sx - ptLabelW - 14);
+          const ptLabelX = isRight ? (sx + (isFS ? 16 : 14)) : (sx - ptLabelW - (isFS ? 16 : 14));
           const ptLabelY = sy - 2;
 
           ctx.strokeStyle = 'rgba(220, 38, 38, 0.5)';
@@ -482,20 +487,20 @@ function renderGraph2() {
 
           ctx.fillStyle = '#991b1b';
           ctx.textAlign = 'left';
-          ctx.fillText(ptLabel, ptLabelX + 6, ptLabelY + 4.5);
+          ctx.fillText(ptLabel, ptLabelX + 7, ptLabelY + (isFS ? 5 : 4.5));
         } else {
-          // ZOOM-OUT (< 160%): Crisp, Clean Physics Dot ⊙ with Small Tag (No Giant Clutter!)
+          // ZOOM-OUT (< 160%): High-contrast, large point font visible in fullscreen!
           ctx.strokeStyle = '#dc2626';
-          ctx.lineWidth = 1.6;
-          ctx.beginPath(); ctx.arc(sx, sy, 5, 0, Math.PI * 2); ctx.stroke();
+          ctx.lineWidth = isFS ? 2.0 : 1.6;
+          ctx.beginPath(); ctx.arc(sx, sy, isFS ? 6.5 : 5, 0, Math.PI * 2); ctx.stroke();
 
           ctx.fillStyle = '#dc2626';
-          ctx.beginPath(); ctx.arc(sx, sy, 2.2, 0, Math.PI * 2); ctx.fill();
+          ctx.beginPath(); ctx.arc(sx, sy, isFS ? 3.0 : 2.2, 0, Math.PI * 2); ctx.fill();
 
-          ctx.font = 'bold 10px Inter, sans-serif';
+          ctx.font = isFS ? 'bold 13.5px "Fira Code", monospace' : 'bold 11px Inter, sans-serif';
           ctx.fillStyle = '#b91c1c';
           ctx.textAlign = 'left';
-          ctx.fillText(`P${pt.no}`, sx + 7, sy - 3);
+          ctx.fillText(`P${pt.no}`, sx + (isFS ? 9 : 7), sy - (isFS ? 4 : 3));
         }
       });
 
@@ -507,18 +512,18 @@ function renderGraph2() {
 
       handleItems.forEach(hItem => {
         if (isDeepZoom) {
-          // DEEP ZOOM (>= 160%): Full 230x44px Large Pill Cards
+          // DEEP ZOOM (>= 160%): Full Large Pill Cards
           ctx.fillStyle = 'rgba(16, 185, 129, 0.35)';
-          ctx.beginPath(); ctx.arc(hItem.sx, hItem.sy, 18, 0, Math.PI * 2); ctx.fill();
+          ctx.beginPath(); ctx.arc(hItem.sx, hItem.sy, isFS ? 22 : 18, 0, Math.PI * 2); ctx.fill();
           ctx.fillStyle = '#059669';
           ctx.strokeStyle = '#ffffff';
           ctx.lineWidth = 2.8;
-          ctx.beginPath(); ctx.arc(hItem.sx, hItem.sy, 10, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+          ctx.beginPath(); ctx.arc(hItem.sx, hItem.sy, isFS ? 12 : 10, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
 
-          const pillW = 230;
-          const pillH = 44;
+          const pillW = isFS ? 260 : 230;
+          const pillH = isFS ? 50 : 44;
           const pillX = hItem.sx - pillW / 2;
-          const pillY = hItem.sy - 52;
+          const pillY = hItem.sy - (isFS ? 60 : 52);
 
           ctx.fillStyle = currentTheme === 'green' ? 'rgba(255, 255, 255, 0.98)' : 'rgba(15, 23, 42, 0.98)';
           ctx.strokeStyle = '#059669';
@@ -526,27 +531,27 @@ function renderGraph2() {
           ctx.fillRect(pillX, pillY, pillW, pillH);
           ctx.strokeRect(pillX, pillY, pillW, pillH);
 
-          ctx.font = 'bold 13.5px "Fira Code", monospace';
+          ctx.font = isFS ? 'bold 15px "Fira Code", monospace' : 'bold 13.5px "Fira Code", monospace';
           ctx.fillStyle = '#047857';
           ctx.textAlign = 'center';
-          ctx.fillText(hItem.name, hItem.sx, pillY + 17);
+          ctx.fillText(hItem.name, hItem.sx, pillY + (isFS ? 19 : 17));
 
-          ctx.font = 'bold 13px "Fira Code", monospace';
+          ctx.font = isFS ? 'bold 14px "Fira Code", monospace' : 'bold 13px "Fira Code", monospace';
           ctx.fillStyle = '#065f46';
-          ctx.fillText(hItem.coordTxt, hItem.sx, pillY + 34);
+          ctx.fillText(hItem.coordTxt, hItem.sx, pillY + (isFS ? 38 : 34));
         } else {
-          // ZOOM-OUT (< 160%): Compact, Clean Handle without huge box!
+          // ZOOM-OUT (< 160%): Clean Handle badge
           ctx.fillStyle = 'rgba(16, 185, 129, 0.35)';
-          ctx.beginPath(); ctx.arc(hItem.sx, hItem.sy, 12, 0, Math.PI * 2); ctx.fill();
+          ctx.beginPath(); ctx.arc(hItem.sx, hItem.sy, isFS ? 15 : 12, 0, Math.PI * 2); ctx.fill();
           ctx.fillStyle = '#059669';
           ctx.strokeStyle = '#ffffff';
           ctx.lineWidth = 2.2;
-          ctx.beginPath(); ctx.arc(hItem.sx, hItem.sy, 6.5, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+          ctx.beginPath(); ctx.arc(hItem.sx, hItem.sy, isFS ? 8 : 6.5, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
 
-          const miniW = 95;
-          const miniH = 20;
+          const miniW = isFS ? 125 : 95;
+          const miniH = isFS ? 25 : 20;
           const miniX = hItem.sx - miniW / 2;
-          const miniY = hItem.sy - 26;
+          const miniY = hItem.sy - (isFS ? 32 : 26);
 
           ctx.fillStyle = currentTheme === 'green' ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.95)';
           ctx.strokeStyle = '#059669';
@@ -554,10 +559,10 @@ function renderGraph2() {
           ctx.fillRect(miniX, miniY, miniW, miniH);
           ctx.strokeRect(miniX, miniY, miniW, miniH);
 
-          ctx.font = 'bold 10.5px "Fira Code", monospace';
+          ctx.font = isFS ? 'bold 13px "Fira Code", monospace' : 'bold 10.5px "Fira Code", monospace';
           ctx.fillStyle = '#047857';
           ctx.textAlign = 'center';
-          ctx.fillText(hItem.miniTxt, hItem.sx, miniY + 14);
+          ctx.fillText(hItem.miniTxt, hItem.sx, miniY + (isFS ? 17 : 14));
         }
       });
 
@@ -567,26 +572,26 @@ function renderGraph2() {
       ctx.fillStyle = currentTheme === 'green' ? 'rgba(255, 255, 255, 0.98)' : 'rgba(15, 23, 42, 0.98)';
       ctx.strokeStyle = currentTheme === 'green' ? '#14532d' : '#334155';
       ctx.lineWidth = 1.8;
-      const boxW = 240, boxH = 98, boxX = w - p.padR - boxW - 5, boxY = p.padT + 5;
+      const boxW = isFS ? 275 : 240, boxH = isFS ? 110 : 98, boxX = w - p.padR - boxW - 5, boxY = p.padT + 5;
       ctx.fillRect(boxX, boxY, boxW, boxH);
       ctx.strokeRect(boxX, boxY, boxW, boxH);
       
-      ctx.font = 'bold 13px Inter, sans-serif';
+      ctx.font = isFS ? 'bold 14.5px Inter, sans-serif' : 'bold 13px Inter, sans-serif';
       ctx.fillStyle = currentTheme === 'green' ? '#14532d' : '#e2e8f0';
       ctx.textAlign = 'left';
-      ctx.fillText('LAB SCALE (GRAPH II):', boxX + 12, boxY + 18);
+      ctx.fillText('LAB SCALE (GRAPH II):', boxX + 12, boxY + (isFS ? 20 : 18));
       
-      ctx.font = 'bold 12px "Fira Code", monospace';
+      ctx.font = isFS ? 'bold 13.5px "Fira Code", monospace' : 'bold 12px "Fira Code", monospace';
       ctx.fillStyle = currentTheme === 'green' ? '#166534' : '#94a3b8';
-      ctx.fillText(`X-axis: 1 cm = ${majorStepX.toFixed(2)} unit`, boxX + 12, boxY + 36);
-      ctx.fillText(`Y-axis: 1 cm = ${majorStepY.toFixed(2)} unit`, boxX + 12, boxY + 52);
+      ctx.fillText(`X-axis: 1 cm = ${majorStepX.toFixed(2)} unit`, boxX + 12, boxY + (isFS ? 40 : 36));
+      ctx.fillText(`Y-axis: 1 cm = ${majorStepY.toFixed(2)} unit`, boxX + 12, boxY + (isFS ? 58 : 52));
       
       // Divider
       ctx.strokeStyle = currentTheme === 'green' ? 'rgba(20, 83, 45, 0.25)' : 'rgba(148, 163, 184, 0.25)';
-      ctx.beginPath(); ctx.moveTo(boxX + 12, boxY + 60); ctx.lineTo(boxX + boxW - 12, boxY + 60); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(boxX + 12, boxY + (isFS ? 67 : 60)); ctx.lineTo(boxX + boxW - 12, boxY + (isFS ? 67 : 60)); ctx.stroke();
 
-      ctx.font = 'bold 11.5px "Fira Code", monospace';
+      ctx.font = isFS ? 'bold 13px "Fira Code", monospace' : 'bold 11.5px "Fira Code", monospace';
       ctx.fillStyle = '#047857';
-      ctx.fillText(`A(x₁, y₁): (${handleA.x.toFixed(2)}, ${handleA.y.toFixed(2)})`, boxX + 12, boxY + 76);
-      ctx.fillText(`B(x₂, y₂): (${handleB.x.toFixed(2)}, ${handleB.y.toFixed(2)})`, boxX + 12, boxY + 92);
+      ctx.fillText(`A(x₁, y₁): (${handleA.x.toFixed(2)}, ${handleA.y.toFixed(2)})`, boxX + 12, boxY + (isFS ? 85 : 76));
+      ctx.fillText(`B(x₂, y₂): (${handleB.x.toFixed(2)}, ${handleB.y.toFixed(2)})`, boxX + 12, boxY + (isFS ? 102 : 92));
     }

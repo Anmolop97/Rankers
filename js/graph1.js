@@ -116,6 +116,7 @@ function renderGraph1() {
 
       const spanX = p.xMax - p.xMin;
       const spanY = p.yMax - p.yMin;
+      const isFS = (typeof document !== 'undefined' && !!document.fullscreenElement) || (w >= 1150);
       const curZoomPct = Math.round(((15.5 - (-1.2)) / (spanX || 1)) * 100);
 
       // Graph 1 Major Step (X: Ratio, Y: Temp in K)
@@ -237,7 +238,7 @@ function renderGraph1() {
       ctx.strokeRect(p.padL + 3.5, p.padT + 3.5, p.plotW - 7, p.plotH - 7);
 
       // Printed Header Stamp
-      ctx.font = 'bold 11px Inter, sans-serif';
+      ctx.font = isFS ? 'bold 13px Inter, sans-serif' : 'bold 11px Inter, sans-serif';
       ctx.fillStyle = textStroke;
       ctx.textAlign = 'left';
       ctx.fillText('PHYSICS PRACTICAL GRAPH SHEET • EXP NO. 05 (GRAPH I: TEMPERATURE CALIBRATION CURVE)', p.padL + 4, p.padT - 13);
@@ -273,13 +274,13 @@ function renderGraph1() {
 
       // Origin Label O(0,0)
       if (originX >= p.padL && originX <= w - p.padR && originY >= p.padT && originY <= h - p.padB) {
-        ctx.font = 'bold 11px "Fira Code", monospace';
+        ctx.font = isFS ? 'bold 13px "Fira Code", monospace' : 'bold 11px "Fira Code", monospace';
         ctx.textAlign = 'right';
         ctx.fillText('O (0,0)', originX - 6, originY + 16);
       }
 
       // X Numbers
-      ctx.font = 'bold 13px "Fira Code", monospace';
+      ctx.font = isFS ? 'bold 15px "Fira Code", monospace' : 'bold 13px "Fira Code", monospace';
       ctx.fillStyle = currentTheme === 'green' ? '#14532d' : '#94a3b8';
       ctx.textAlign = 'center';
       for (let x = startXMajor; x <= p.xMax; x += majorStepX) {
@@ -287,7 +288,7 @@ function renderGraph1() {
         const sx = toScreenX(x);
         if (sx < p.padL || sx > w - p.padR) continue;
         ctx.beginPath(); ctx.moveTo(sx, xAxisY - 4); ctx.lineTo(sx, xAxisY + 4); ctx.stroke();
-        ctx.fillText(Number(x.toFixed(2)).toString(), sx, xAxisY + 19);
+        ctx.fillText(Number(x.toFixed(2)).toString(), sx, xAxisY + (isFS ? 22 : 19));
       }
 
       // Y Numbers
@@ -301,12 +302,12 @@ function renderGraph1() {
       }
 
       // Axis Labels
-      ctx.font = 'bold 13.5px Inter, sans-serif';
+      ctx.font = isFS ? 'bold 16px Inter, sans-serif' : 'bold 13.5px Inter, sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText('+X: Resistance Ratio (RT / R300)  [Cold Ref R300 = 0.60 Ω]  →', w - p.padR - 190, xAxisY - 12);
+      ctx.fillText('+X: Resistance Ratio (RT / R300)  [Cold Ref R300 = 0.60 Ω]  →', w - p.padR - (isFS ? 210 : 190), xAxisY - (isFS ? 14 : 12));
 
       ctx.save();
-      ctx.translate(yAxisX - 22, p.padT + 90);
+      ctx.translate(yAxisX - (isFS ? 24 : 22), p.padT + (isFS ? 105 : 90));
       ctx.rotate(-Math.PI / 2);
       ctx.fillText('+Y: Filament Temperature T (Kelvin)  →', 0, 0);
       ctx.restore();
@@ -358,20 +359,21 @@ function renderGraph1() {
 
         // Standard badge
         const stdTxt = `Std: (${std.ratio.toFixed(1)}, ${std.temp}K)`;
-        ctx.font = 'bold 11px "Fira Code", monospace';
-        const txtW = ctx.measureText(stdTxt).width + 10;
+        ctx.font = isFS ? 'bold 13px "Fira Code", monospace' : 'bold 11px "Fira Code", monospace';
+        const txtW = ctx.measureText(stdTxt).width + (isFS ? 14 : 10);
         const bX = sx + 12;
         const bY = sy + 6;
+        const bH = isFS ? 24 : 20;
 
         ctx.fillStyle = currentTheme === 'green' ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.95)';
         ctx.strokeStyle = '#059669';
         ctx.lineWidth = 1.2;
-        ctx.fillRect(bX, bY - 11, txtW, 20);
-        ctx.strokeRect(bX, bY - 11, txtW, 20);
+        ctx.fillRect(bX, bY - bH / 2, txtW, bH);
+        ctx.strokeRect(bX, bY - bH / 2, txtW, bH);
 
         ctx.fillStyle = '#065f46';
         ctx.textAlign = 'left';
-        ctx.fillText(stdTxt, bX + 5, bY + 3.5);
+        ctx.fillText(stdTxt, bX + 6, bY + (isFS ? 4.5 : 3.5));
       });
 
       // Draw 12 Student Observation Points & Dashed Projection Lines
@@ -430,17 +432,17 @@ function renderGraph1() {
           // Physics Dot ⊙ at (ratio, T) on curve
           ctx.strokeStyle = isFocussed ? '#b91c1c' : '#dc2626';
           ctx.lineWidth = isFocussed ? 2.8 : 1.8;
-          ctx.beginPath(); ctx.arc(sx, sy, isFocussed ? 7 : 5, 0, Math.PI * 2); ctx.stroke();
+          ctx.beginPath(); ctx.arc(sx, sy, isFocussed ? (isFS ? 8.5 : 7) : (isFS ? 6.5 : 5), 0, Math.PI * 2); ctx.stroke();
           ctx.fillStyle = isFocussed ? '#ef4444' : '#dc2626';
-          ctx.beginPath(); ctx.arc(sx, sy, isFocussed ? 3.5 : 2.2, 0, Math.PI * 2); ctx.fill();
+          ctx.beginPath(); ctx.arc(sx, sy, isFocussed ? (isFS ? 4.5 : 3.5) : (isFS ? 3.0 : 2.2), 0, Math.PI * 2); ctx.fill();
 
           // Label / Badge
           if (isFocussed || (isSelected && isDeepZoom)) {
             const obsLabel = `P${pt.no}: (${pt.ratio.toFixed(2)}, ${pt.t}K)`;
-            ctx.font = 'bold 12px "Fira Code", monospace';
-            const oW = ctx.measureText(obsLabel).width + 12;
-            const oH = 22;
-            const oX = (idx % 2 === 0) ? (sx + 10) : (sx - oW - 10);
+            ctx.font = isFS ? 'bold 14px "Fira Code", monospace' : 'bold 12px "Fira Code", monospace';
+            const oW = ctx.measureText(obsLabel).width + (isFS ? 16 : 12);
+            const oH = isFS ? 26 : 22;
+            const oX = (idx % 2 === 0) ? (sx + (isFS ? 14 : 10)) : (sx - oW - (isFS ? 14 : 10));
             const oY = sy - 14;
 
             ctx.fillStyle = currentTheme === 'green' ? 'rgba(255, 255, 255, 0.98)' : 'rgba(15, 23, 42, 0.98)';
@@ -451,12 +453,12 @@ function renderGraph1() {
 
             ctx.fillStyle = '#991b1b';
             ctx.textAlign = 'left';
-            ctx.fillText(obsLabel, oX + 6, oY + 4);
+            ctx.fillText(obsLabel, oX + 7, oY + (isFS ? 5 : 4));
           } else if (isSelected) {
-            ctx.font = 'bold 10px Inter, sans-serif';
+            ctx.font = isFS ? 'bold 13.5px "Fira Code", monospace' : 'bold 11px Inter, sans-serif';
             ctx.fillStyle = '#b91c1c';
             ctx.textAlign = 'left';
-            ctx.fillText(`P${pt.no}`, sx + 7, sy - 3);
+            ctx.fillText(`P${pt.no}`, sx + (isFS ? 9 : 7), sy - (isFS ? 4 : 3));
           }
         });
       }
@@ -467,30 +469,30 @@ function renderGraph1() {
       ctx.fillStyle = currentTheme === 'green' ? 'rgba(255, 255, 255, 0.98)' : 'rgba(15, 23, 42, 0.98)';
       ctx.strokeStyle = currentTheme === 'green' ? '#14532d' : '#334155';
       ctx.lineWidth = 1.8;
-      const boxW = 245, boxH = 98, boxX = w - p.padR - boxW - 5, boxY = p.padT + 5;
+      const boxW = isFS ? 275 : 245, boxH = isFS ? 110 : 98, boxX = w - p.padR - boxW - 5, boxY = p.padT + 5;
       ctx.fillRect(boxX, boxY, boxW, boxH);
       ctx.strokeRect(boxX, boxY, boxW, boxH);
       
-      ctx.font = 'bold 13px Inter, sans-serif';
+      ctx.font = isFS ? 'bold 14.5px Inter, sans-serif' : 'bold 13px Inter, sans-serif';
       ctx.fillStyle = currentTheme === 'green' ? '#14532d' : '#e2e8f0';
       ctx.textAlign = 'left';
-      ctx.fillText('LAB SCALE (GRAPH I):', boxX + 12, boxY + 18);
+      ctx.fillText('LAB SCALE (GRAPH I):', boxX + 12, boxY + (isFS ? 20 : 18));
       
-      ctx.font = 'bold 12px "Fira Code", monospace';
+      ctx.font = isFS ? 'bold 13.5px "Fira Code", monospace' : 'bold 12px "Fira Code", monospace';
       ctx.fillStyle = currentTheme === 'green' ? '#166534' : '#94a3b8';
-      ctx.fillText(`X-axis: 1 cm = ${majorStepX.toFixed(2)} [RT/R300]`, boxX + 12, boxY + 36);
-      ctx.fillText(`Y-axis: 1 cm = ${majorStepY} K [Temp T]`, boxX + 12, boxY + 52);
+      ctx.fillText(`X-axis: 1 cm = ${majorStepX.toFixed(2)} [RT/R300]`, boxX + 12, boxY + (isFS ? 40 : 36));
+      ctx.fillText(`Y-axis: 1 cm = ${majorStepY} K [Temp T]`, boxX + 12, boxY + (isFS ? 58 : 52));
       
       ctx.strokeStyle = currentTheme === 'green' ? 'rgba(20, 83, 45, 0.25)' : 'rgba(148, 163, 184, 0.25)';
-      ctx.beginPath(); ctx.moveTo(boxX + 12, boxY + 60); ctx.lineTo(boxX + boxW - 12, boxY + 60); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(boxX + 12, boxY + (isFS ? 67 : 60)); ctx.lineTo(boxX + boxW - 12, boxY + (isFS ? 67 : 60)); ctx.stroke();
 
-      ctx.font = 'bold 11px "Fira Code", monospace';
+      ctx.font = isFS ? 'bold 12.5px "Fira Code", monospace' : 'bold 11px "Fira Code", monospace';
       ctx.fillStyle = '#dc2626';
       const selTxt = (graph1SelectedObs === 'all') ? 'Showing All 12 Projections' : (graph1SelectedObs === 'standards' ? 'Table I Standards (5 Pts)' : `Focus: Reading P${graph1SelectedObs}`);
-      ctx.fillText(selTxt, boxX + 12, boxY + 76);
+      ctx.fillText(selTxt, boxX + 12, boxY + (isFS ? 85 : 76));
 
       ctx.fillStyle = '#047857';
-      ctx.fillText(`Cold Ref: R₃₀₀ = 0.60 Ω`, boxX + 12, boxY + 92);
+      ctx.fillText(`Cold Ref: R₃₀₀ = 0.60 Ω`, boxX + 12, boxY + (isFS ? 102 : 92));
     }
 
     // Graph II: Log P vs Log T (Stefan's Law Slope) Renderer
