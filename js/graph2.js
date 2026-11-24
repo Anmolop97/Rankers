@@ -37,16 +37,27 @@ function showAllQuadrants() {
 
 function onSliderChange(val) {
       const targetSlope = parseFloat(val);
-      document.getElementById('slider-val-badge').innerText = `n = ${targetSlope.toFixed(2)}`;
+      const badge = document.getElementById('slider-val-badge');
+      if (badge) badge.innerText = `n = ${targetSlope.toFixed(2)}`;
       
-      // Pivot around Point 7 (3.30, 0.18)
-      const refX = 3.30, refY = 0.18;
-      handleA.x = 2.80;
-      handleA.y = parseFloat((refY - targetSlope * (refX - handleA.x)).toFixed(2));
-      handleB.x = 3.40;
-      handleB.y = parseFloat((refY + targetSlope * (handleB.x - refX)).toFixed(2));
+      // Symmetrical pivot around segment center (3.10, -0.485)
+      // Both Top Handle B and Bottom Handle A move equally and smoothly!
+      if (Math.abs(targetSlope - 3.42) < 0.01) {
+        handleA.x = 2.80;
+        handleA.y = -1.51;
+        handleB.x = 3.40;
+        handleB.y = 0.54;
+      } else {
+        const midY = -0.485;
+        const halfSpanX = 0.30;
+        handleA.x = 2.80;
+        handleA.y = parseFloat((midY - targetSlope * halfSpanX).toFixed(2));
+        handleB.x = 3.40;
+        handleB.y = parseFloat((midY + targetSlope * halfSpanX).toFixed(2));
+      }
 
       renderCanvas();
+      executeCalculation();
     }
 
     function applyPreset(n) {
