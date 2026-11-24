@@ -248,7 +248,7 @@
 
       </div>
 
-      <!-- Detailed Calculation & Lab Manual Output Section (Large, Spacious, Non-Compact Academic Format) -->
+      <!-- Detailed Calculation & Lab Manual Output Section (Formal Student Practical Notebook Format) -->
       <div id="detailed-solution" class="max-w-6xl mx-auto w-full bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-12 shadow-2xl space-y-10">
         
         <!-- Section Header -->
@@ -258,8 +258,8 @@
               <i data-lucide="book-open" class="w-7 h-7"></i>
             </div>
             <div>
-              <h3 class="text-2xl sm:text-3xl font-black text-white font-sans tracking-tight">Official Calculation &amp; Results (Page 20)</h3>
-              <p class="text-sm sm:text-base text-slate-400 mt-1">Full step-by-step mathematical derivation with values directly substituted</p>
+              <h3 class="text-2xl sm:text-3xl font-black text-white font-sans tracking-tight">CALCULATIONS</h3>
+              <p class="text-sm sm:text-base text-slate-400 mt-1">Standard format for Physics Practical Lab Record Notebook (Exp No. 05)</p>
             </div>
           </div>
 
@@ -275,23 +275,23 @@
           </div>
         </div>
 
-        <!-- 3 Main Metrics Cards (Large, High-Contrast Typography with Generous Padding) -->
+        <!-- 3 Main Metrics Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
           <div class="bg-slate-950/90 border-2 border-slate-800/90 rounded-3xl p-7 sm:p-8 shadow-lg space-y-2">
             <div class="text-sm font-bold text-slate-400 uppercase tracking-widest">Slope of Graph II (n)</div>
             <div id="res-slope" class="text-4xl sm:text-5xl font-black text-emerald-400 font-sans tracking-tight">3.42</div>
-            <div class="text-sm font-medium text-slate-400 pt-1">&Delta;y / &Delta;x = &Delta;Log₁₀(P) / &Delta;Log₁₀(T)</div>
+            <div class="text-sm font-medium text-slate-400 pt-1">&Delta;y / &Delta;x = &Delta;log₁₀(P) / &Delta;log₁₀(T)</div>
           </div>
 
           <div class="bg-slate-950/90 border-2 border-slate-800/90 rounded-3xl p-7 sm:p-8 shadow-lg space-y-2">
             <div class="text-sm font-bold text-slate-400 uppercase tracking-widest">Stefan-Boltzmann Constant (&sigma;)</div>
-            <div id="res-sigma" class="text-3xl sm:text-4xl font-black text-amber-300 font-sans tracking-tight">5.37&times;10<sup>-8</sup></div>
+            <div id="res-sigma" class="text-3xl sm:text-4xl font-black text-amber-300 font-sans tracking-tight">5.51&times;10<sup>-8</sup></div>
             <div class="text-sm font-medium text-slate-400 pt-1">W&middot;m<sup>-2</sup>&middot;K<sup>-4</sup></div>
           </div>
 
           <div class="bg-slate-950/90 border-2 border-slate-800/90 rounded-3xl p-7 sm:p-8 shadow-lg space-y-2">
             <div class="text-sm font-bold text-slate-400 uppercase tracking-widest">Percentage Error</div>
-            <div id="res-error" class="text-4xl sm:text-5xl font-black text-emerald-400 font-sans tracking-tight">5.3%</div>
+            <div id="res-error" class="text-4xl sm:text-5xl font-black text-emerald-400 font-sans tracking-tight">2.8%</div>
             <div class="text-sm font-medium text-slate-400 pt-1">vs Standard (5.67&times;10<sup>-8</sup>)</div>
           </div>
         </div>
@@ -332,270 +332,133 @@
             </div>
           </div>
 
-          <!-- Step 1: Slope -->
-          <div class="p-8 sm:p-10 rounded-3xl bg-slate-950/80 border-2 border-slate-800 space-y-7 shadow-xl">
-            <div class="flex flex-wrap items-center justify-between pb-4 border-b border-slate-800 gap-3">
+          <!-- Section 1: Cathode Surface Area -->
+          <div class="p-7 sm:p-9 rounded-3xl bg-slate-950/80 border-2 border-slate-800 space-y-5 shadow-xl">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
               <span class="text-xl sm:text-2xl font-black text-white flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 text-base font-black flex items-center justify-center border border-emerald-500/30">1</span>
-                Step 1: Slope of Graph II (n)
+                <span class="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-400 text-sm font-black flex items-center justify-center border border-purple-500/30">1</span>
+                Cathode Surface Area (S) &amp; Emissivity (&epsilon;)
               </span>
-              <span class="text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300">n = &Delta;y / &Delta;x</span>
+              <span class="text-xs sm:text-sm font-mono text-purple-300 font-bold">S = 2&pi;rl</span>
             </div>
 
-            <!-- 1. Formula -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">1. Mathematical Formula</div>
-              <div class="text-xl sm:text-2xl font-black text-emerald-400 py-1 font-mono tracking-tight">
-                n = (y₂ - y₁) / (x₂ - x₁) = &Delta;Log₁₀(P) / &Delta;Log₁₀(T)
+            <div class="text-sm sm:text-base text-slate-300 leading-relaxed space-y-1">
+              <div>Radius of cathode, <span class="font-mono text-white">r = 0.31 &times; 10⁻² m</span></div>
+              <div>Length of cathode, <span class="font-mono text-white">l = 3.12 &times; 10⁻² m</span></div>
+              <div>Emissivity of nickel cathode, <span class="font-mono text-white">&epsilon; = 0.24</span></div>
+            </div>
+
+            <div class="space-y-1.5 font-mono text-sm sm:text-base text-slate-200 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+              <div>Surface Area, S = 2 &times; &pi; &times; r &times; l</div>
+              <div>S = 2 &times; 3.1416 &times; (0.31 &times; 10⁻²) &times; (3.12 &times; 10⁻²)</div>
+              <div class="text-purple-300 font-bold text-base sm:text-lg">S = 6.08 &times; 10⁻⁴ m²</div>
+            </div>
+
+            <div class="space-y-1 font-mono text-sm sm:text-base text-slate-200 bg-purple-950/20 p-4 rounded-xl border border-purple-500/30">
+              <div class="text-xs uppercase tracking-wider text-purple-300 font-sans font-bold">Effective Radiation Factor:</div>
+              <div class="text-purple-200 font-bold text-base sm:text-lg">&epsilon; &middot; S = 0.24 &times; (6.08 &times; 10⁻⁴) = 1.46 &times; 10⁻⁴ m²</div>
+            </div>
+          </div>
+
+          <!-- Section 2: Slope of Graph II -->
+          <div class="p-7 sm:p-9 rounded-3xl bg-slate-950/80 border-2 border-slate-800 space-y-5 shadow-xl">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+              <span class="text-xl sm:text-2xl font-black text-white flex items-center gap-3">
+                <span class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 text-sm font-black flex items-center justify-center border border-emerald-500/30">2</span>
+                Slope of Graph II (n)
+              </span>
+              <span class="text-xs sm:text-sm font-mono text-emerald-300 font-bold">n = &Delta;y / &Delta;x</span>
+            </div>
+
+            <div class="text-sm sm:text-base text-slate-300">
+              From the straight-line graph of log₁₀(P) vs log₁₀(T), taking two points on the line:
+            </div>
+
+            <div id="step1-points" class="font-mono text-sm sm:text-base font-bold text-emerald-300 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+              Point A: (x₁, y₁) = (2.80, -1.51) &nbsp;&bull;&nbsp; Point B: (x₂, y₂) = (3.40, 0.54)
+            </div>
+
+            <div class="space-y-2 font-mono text-sm sm:text-base text-slate-200 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+              <div>Slope, n = (y₂ - y₁) / (x₂ - x₁)</div>
+              <div id="step1-sub">n = [0.54 - (-1.51)] / [3.40 - 2.80]</div>
+              <div id="step1-calc">n = 2.05 / 0.60</div>
+              <div class="text-emerald-300 font-black text-lg sm:text-xl">n = <span id="step1-ans">3.42</span></div>
+            </div>
+          </div>
+
+          <!-- Section 3: Determination of Stefan-Boltzmann Constant -->
+          <div class="p-7 sm:p-9 rounded-3xl bg-slate-950/80 border-2 border-slate-800 space-y-5 shadow-xl">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+              <span class="text-xl sm:text-2xl font-black text-white flex items-center gap-3">
+                <span class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 text-sm font-black flex items-center justify-center border border-cyan-500/30">3</span>
+                Determination of Stefan-Boltzmann Constant (&sigma;)
+              </span>
+              <span class="text-xs sm:text-sm font-mono text-cyan-300 font-bold">P = &epsilon;S&sigma;Tⁿ</span>
+            </div>
+
+            <div class="text-sm sm:text-base text-slate-300 leading-relaxed space-y-2">
+              <div>According to Stefan's Law: <span class="font-mono text-white font-bold">P = &epsilon; S &sigma; Tⁿ</span></div>
+              <div>Taking log on both sides:</div>
+              <div class="font-mono text-cyan-300 pl-3">
+                log₁₀(P) = log₁₀(&epsilon; S &sigma;) + n &middot; log₁₀(T)<br>
+                log₁₀(&epsilon; S &sigma;) = log₁₀(P) - n &middot; log₁₀(T)
               </div>
             </div>
 
-            <!-- 2. Points on line -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">2. Points Chosen on the Straight Line</div>
-              <div id="step1-points" class="text-base sm:text-lg font-bold text-slate-200 py-1">
-                Point A(x₁, y₁) = (2.80, -1.51) &nbsp;&bull;&nbsp; Point B(x₂, y₂) = (3.40, 0.54)
-              </div>
+            <div class="space-y-2 font-mono text-sm sm:text-base text-slate-200 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+              <div class="text-xs uppercase tracking-wider text-slate-400 font-sans font-bold">Choosing reference point from graph line: (log₁₀ T = 3.30, log₁₀ P = 0.18)</div>
+              <div id="step3-sub">log₁₀(&epsilon;S&sigma;) = 0.18 - (3.4167 &times; 3.30)</div>
+              <div id="step3-calc">log₁₀(&epsilon;S&sigma;) = 0.18 - 11.275 = -11.095</div>
             </div>
 
-            <!-- 3. Substitution -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">3. Numerical Substitution</div>
-              <div id="step1-sub" class="text-lg sm:text-xl font-bold text-slate-100 py-1 font-mono">
-                n = (0.54 - (-1.51)) / (3.40 - 2.80)
-              </div>
+            <div class="space-y-1 font-mono text-sm sm:text-base text-slate-200 bg-cyan-950/20 p-4 rounded-xl border border-cyan-500/30">
+              <div class="text-xs uppercase tracking-wider text-cyan-300 font-sans font-bold">Taking Antilog:</div>
+              <div id="step3-ans" class="text-cyan-200 font-bold text-base sm:text-lg">&epsilon; S &sigma; = 10⁻¹¹&middot;⁰⁹⁵ = 8.03 &times; 10⁻¹² W</div>
             </div>
 
-            <!-- 4. Calculation -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">4. Intermediate Calculation</div>
-              <div id="step1-calc" class="text-lg sm:text-xl font-bold text-slate-100 py-1 font-mono">
-                n = 2.05 / 0.60
-              </div>
-            </div>
-
-            <!-- 5. Output Beneath -->
-            <div class="pt-4 border-t-2 border-slate-800">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold mb-2">Final Output (Neeche)</div>
-              <div class="p-6 rounded-2xl bg-emerald-950/40 border-2 border-emerald-500/50 text-emerald-300 font-black text-2xl sm:text-3xl flex flex-wrap items-center justify-between gap-4">
-                <span>n = <span id="step1-ans">3.42</span></span>
-                <span class="text-sm font-semibold text-emerald-400/90">Theoretical Value = 4.00</span>
+            <div class="space-y-2 font-mono text-sm sm:text-base text-slate-200 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+              <div>Now, &sigma; = (&epsilon; S &sigma;) / (&epsilon; S)</div>
+              <div id="step4-sub">&sigma; = (8.03 &times; 10⁻¹²) / (1.46 &times; 10⁻⁴)</div>
+              <div class="text-amber-300 font-black text-xl sm:text-2xl pt-1">
+                &sigma; = <span id="step4-ans">5.51 &times; 10⁻⁸</span> W&middot;m⁻²&middot;K⁻⁴
               </div>
             </div>
           </div>
 
-          <!-- Step 2: Cathode Surface Area -->
-          <div class="p-8 sm:p-10 rounded-3xl bg-slate-950/80 border-2 border-slate-800 space-y-7 shadow-xl">
-            <div class="flex flex-wrap items-center justify-between pb-4 border-b border-slate-800 gap-3">
+          <!-- Section 4: Percentage Error -->
+          <div class="p-7 sm:p-9 rounded-3xl bg-slate-950/80 border-2 border-slate-800 space-y-5 shadow-xl">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
               <span class="text-xl sm:text-2xl font-black text-white flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-purple-500/20 text-purple-400 text-base font-black flex items-center justify-center border border-purple-500/30">2</span>
-                Step 2: Cathode Surface Area (S) &amp; Emissivity (&epsilon;)
+                <span class="w-8 h-8 rounded-xl bg-rose-500/20 text-rose-400 text-sm font-black flex items-center justify-center border border-rose-500/30">4</span>
+                Percentage Error
               </span>
-              <span class="text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300">S = 2&pi;rl</span>
+              <span class="text-xs sm:text-sm font-mono text-rose-300 font-bold">&sigma; standard = 5.67 &times; 10⁻⁸</span>
             </div>
 
-            <!-- 1. Formula -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">1. Surface Area Formula</div>
-              <div class="text-xl sm:text-2xl font-black text-purple-300 py-1 font-mono">
-                S = 2 &times; &pi; &times; r &times; l
-              </div>
+            <div class="text-sm sm:text-base text-slate-300">
+              Standard value of &sigma; = <span class="font-mono text-white font-bold">5.67 &times; 10⁻⁸ W&middot;m⁻²&middot;K⁻⁴</span>
             </div>
 
-            <!-- 2. Given parameters -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">2. Given Cathode Parameters (Page 20)</div>
-              <div class="text-base sm:text-lg font-bold text-slate-200 leading-relaxed py-1">
-                Radius r = 0.31 &times; 10⁻² m (0.0031 m) &nbsp;&bull;&nbsp; 
-                Length l = 3.12 &times; 10⁻² m (0.0312 m) &nbsp;&bull;&nbsp; 
-                Emissivity &epsilon; = 0.24 (for Nickel cathode)
-              </div>
-            </div>
-
-            <!-- 3. Substitution -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">3. Numerical Substitution</div>
-              <div class="text-lg sm:text-xl font-bold text-slate-100 py-1 font-mono">
-                S = 2 &times; 3.1416 &times; (0.0031) &times; (0.0312)
-              </div>
-            </div>
-
-            <!-- 4. Calculation -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">4. Intermediate Calculation</div>
-              <div class="text-lg sm:text-xl font-bold text-slate-100 py-1 font-mono">
-                S = 6.0771 &times; 10⁻⁴ m²
-              </div>
-            </div>
-
-            <!-- 5. Output Beneath -->
-            <div class="pt-4 border-t-2 border-slate-800 space-y-4">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold mb-1">Final Outputs (Neeche)</div>
-              <div class="p-6 rounded-2xl bg-purple-950/40 border-2 border-purple-500/50 text-purple-200 font-bold text-xl sm:text-2xl flex flex-wrap items-center justify-between gap-4">
-                <span>Surface Area (S) = <span class="text-white font-black text-2xl sm:text-3xl">6.08 &times; 10⁻⁴ m²</span></span>
-                <span class="text-sm font-semibold text-purple-300">S = 2&pi;rl</span>
-              </div>
-              <div class="p-6 rounded-2xl bg-purple-950/40 border-2 border-purple-500/50 text-purple-200 font-bold text-xl sm:text-2xl flex flex-wrap items-center justify-between gap-4">
-                <span>Combined Factor (&epsilon;&middot;S) = <span class="text-purple-300 font-black text-2xl sm:text-3xl">1.4585 &times; 10⁻⁴ m²</span></span>
-                <span class="text-sm font-semibold text-purple-300">&epsilon; &times; S = 0.24 &times; 6.077&times;10⁻⁴</span>
+            <div class="space-y-2 font-mono text-sm sm:text-base text-slate-200 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+              <div>Percentage Error = [ |Calculated &sigma; - Standard &sigma;| / Standard &sigma; ] &times; 100%</div>
+              <div id="step5-sub">= [ |5.51 &times; 10⁻⁸ - 5.67 &times; 10⁻⁸| / (5.67 &times; 10⁻⁸) ] &times; 100%</div>
+              <div id="step5-calc">= [ 0.16 / 5.67 ] &times; 100%</div>
+              <div class="text-emerald-400 font-black text-xl sm:text-2xl pt-1">
+                = <span id="step5-ans">2.8%</span>
               </div>
             </div>
           </div>
 
-          <!-- Step 3: Stefan's Law Equation -->
-          <div class="p-8 sm:p-10 rounded-3xl bg-slate-950/80 border-2 border-slate-800 space-y-7 shadow-xl">
-            <div class="flex flex-wrap items-center justify-between pb-4 border-b border-slate-800 gap-3">
-              <span class="text-xl sm:text-2xl font-black text-white flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-cyan-500/20 text-cyan-400 text-base font-black flex items-center justify-center border border-cyan-500/30">3</span>
-                Step 3: Stefan's Law Logarithmic Formula &amp; Intercept
-              </span>
-              <span class="text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300">P = &epsilon;S&sigma;Tⁿ</span>
+          <!-- Section 5: RESULTS -->
+          <div class="p-7 sm:p-9 rounded-3xl bg-emerald-950/30 border-2 border-emerald-500/40 space-y-4 shadow-xl">
+            <div class="text-lg sm:text-xl font-black text-emerald-400 tracking-wide flex items-center gap-2">
+              <i data-lucide="check-circle" class="w-5 h-5"></i>
+              RESULTS:
             </div>
-
-            <!-- 1. Formula -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">1. Stefan's Law &amp; Logarithmic Form</div>
-              <div class="text-xl sm:text-2xl font-black text-cyan-300 py-1 font-mono leading-relaxed">
-                log₁₀(P) = log₁₀(&epsilon;S&sigma;) + n &times; log₁₀(T)
-                <div class="text-slate-300 text-lg font-bold mt-1">&rArr; log₁₀(&epsilon;S&sigma;) = log₁₀(P) - n &times; log₁₀(T)</div>
-              </div>
-            </div>
-
-            <!-- 2. Reference point -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">2. Reference Point Chosen on Line</div>
-              <div class="text-base sm:text-lg font-bold text-slate-200 py-1">
-                Point 7: Log₁₀(T) = 3.30 &nbsp;&bull;&nbsp; Log₁₀(P) = 0.18
-              </div>
-            </div>
-
-            <!-- 3. Substitution -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">3. Numerical Substitution</div>
-              <div id="step3-sub" class="text-lg sm:text-xl font-bold text-slate-100 py-1 font-mono">
-                log₁₀(&epsilon;S&sigma;) = 0.18 - (3.42 &times; 3.30)
-              </div>
-            </div>
-
-            <!-- 4. Calculation -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">4. Intermediate Calculation</div>
-              <div id="step3-calc" class="text-lg sm:text-xl font-bold text-slate-100 py-1 font-mono">
-                log₁₀(&epsilon;S&sigma;) = 0.18 - 11.2860
-              </div>
-            </div>
-
-            <!-- 5. Output Beneath -->
-            <div class="pt-4 border-t-2 border-slate-800">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold mb-2">Final Output (Neeche)</div>
-              <div class="p-6 rounded-2xl bg-cyan-950/40 border-2 border-cyan-500/50 text-cyan-300 font-black text-2xl sm:text-3xl flex flex-wrap items-center justify-between gap-4">
-                <span>log₁₀(&epsilon;S&sigma;) = <span id="step3-ans">-11.1060</span></span>
-                <span class="text-sm font-semibold text-cyan-400/90">&epsilon;S&sigma; = 10^(-11.1060)</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 4: Stefan-Boltzmann Constant -->
-          <div class="p-8 sm:p-10 rounded-3xl bg-slate-950/80 border-2 border-slate-800 space-y-7 shadow-xl">
-            <div class="flex flex-wrap items-center justify-between pb-4 border-b border-slate-800 gap-3">
-              <span class="text-xl sm:text-2xl font-black text-white flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 text-base font-black flex items-center justify-center border border-amber-500/30">4</span>
-                Step 4: Stefan-Boltzmann Constant (&sigma;)
-              </span>
-              <span class="text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300">&sigma; = 10^c / (&epsilon;S)</span>
-            </div>
-
-            <!-- 1. Formula -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">1. Mathematical Formula</div>
-              <div class="text-xl sm:text-2xl font-black text-amber-300 py-1 font-mono">
-                &sigma; = 10^[log₁₀(&epsilon;S&sigma;)] / (&epsilon; &times; S)
-              </div>
-            </div>
-
-            <!-- 2. Values -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">2. Values Put Into Formula</div>
-              <div class="text-base sm:text-lg font-bold text-slate-200 py-1">
-                10^c = 10^(-11.1060) = 7.8343 &times; 10⁻¹² W &nbsp;&bull;&nbsp; &epsilon;&middot;S = 1.4585 &times; 10⁻⁴ m²
-              </div>
-            </div>
-
-            <!-- 3. Substitution -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">3. Numerical Substitution</div>
-              <div id="step4-sub" class="text-lg sm:text-xl font-bold text-slate-100 py-1 font-mono">
-                &sigma; = 10^(-11.1060) / (1.4585 &times; 10⁻⁴)
-              </div>
-            </div>
-
-            <!-- 4. Calculation -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">4. Intermediate Calculation</div>
-              <div id="step4-calc" class="text-lg sm:text-xl font-bold text-slate-100 py-1 font-mono">
-                &sigma; = (7.8343 &times; 10⁻¹²) / (1.4585 &times; 10⁻⁴)
-              </div>
-            </div>
-
-            <!-- 5. Output Beneath -->
-            <div class="pt-4 border-t-2 border-slate-800">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold mb-2">Final Output (Neeche)</div>
-              <div class="p-6 rounded-2xl bg-amber-950/40 border-2 border-amber-500/50 text-amber-300 font-black text-2xl sm:text-3xl flex flex-wrap items-center justify-between gap-4">
-                <span>&sigma; = <span id="step4-ans">5.37 &times; 10⁻⁸</span> <span class="text-base font-medium text-slate-300">W&middot;m⁻²&middot;K⁻⁴</span></span>
-                <span class="text-sm font-semibold text-amber-400/90">Lab Experimental Result</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 5: Percentage Error -->
-          <div class="p-8 sm:p-10 rounded-3xl bg-slate-950/80 border-2 border-slate-800 space-y-7 shadow-xl">
-            <div class="flex flex-wrap items-center justify-between pb-4 border-b border-slate-800 gap-3">
-              <span class="text-xl sm:text-2xl font-black text-white flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-rose-500/20 text-rose-400 text-base font-black flex items-center justify-center border border-rose-500/30">5</span>
-                Step 5: Percentage Error Formula
-              </span>
-              <span class="text-xs sm:text-sm font-bold px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300">&sigma; exact = 5.67&times;10⁻⁸</span>
-            </div>
-
-            <!-- 1. Formula -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">1. Percentage Error Formula</div>
-              <div class="text-xl sm:text-2xl font-black text-rose-300 py-1 font-mono">
-                % Error = (|&sigma;<sub>calculated</sub> - &sigma;<sub>standard</sub>| / &sigma;<sub>standard</sub>) &times; 100%
-              </div>
-            </div>
-
-            <!-- 2. Standard Value -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">2. Standard Theoretical Constant</div>
-              <div class="text-base sm:text-lg font-bold text-slate-200 py-1">
-                &sigma;<sub>standard</sub> = 5.67037 &times; 10⁻⁸ W&middot;m⁻²&middot;K⁻⁴
-              </div>
-            </div>
-
-            <!-- 3. Substitution -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">3. Numerical Substitution</div>
-              <div id="step5-sub" class="text-lg sm:text-xl font-bold text-slate-100 py-1 font-mono">
-                % Error = (|5.37 &times; 10⁻⁸ - 5.67 &times; 10⁻⁸| / 5.67 &times; 10⁻⁸) &times; 100%
-              </div>
-            </div>
-
-            <!-- 4. Calculation -->
-            <div class="space-y-2">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold">4. Intermediate Calculation</div>
-              <div id="step5-calc" class="text-lg sm:text-xl font-bold text-slate-100 py-1 font-mono">
-                % Error = (0.30 &times; 10⁻⁸ / 5.67 &times; 10⁻⁸) &times; 100%
-              </div>
-            </div>
-
-            <!-- 5. Output Beneath -->
-            <div class="pt-4 border-t-2 border-slate-800">
-              <div class="text-xs sm:text-sm uppercase tracking-widest text-slate-400 font-bold mb-2">Final Output (Neeche)</div>
-              <div class="p-6 rounded-2xl bg-rose-950/40 border-2 border-rose-500/50 text-rose-300 font-black text-2xl sm:text-3xl flex flex-wrap items-center justify-between gap-4">
-                <span>Error = <span id="step5-ans">5.3%</span></span>
-                <span class="text-sm font-bold px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Grade A+ Optimal</span>
-              </div>
+            <div class="font-mono text-sm sm:text-base text-slate-200 space-y-2 pl-2">
+              <div>1. Slope of Graph II (n) = <span class="text-emerald-300 font-bold">3.42</span></div>
+              <div>2. Stefan-Boltzmann Constant (&sigma;) = <span class="text-amber-300 font-bold">5.51 &times; 10⁻⁸ W&middot;m⁻²&middot;K⁻⁴</span></div>
+              <div>3. Percentage Error = <span class="text-emerald-300 font-bold">2.8%</span></div>
             </div>
           </div>
 
@@ -604,7 +467,7 @@
         <!-- Copy to Clipboard Button (Large & Prominent) -->
         <button onclick="copyToClipboard()" class="w-full py-5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-white text-base sm:text-lg font-black border-2 border-slate-700 transition flex items-center justify-center gap-3 shadow-xl">
           <i data-lucide="copy" class="w-5 h-5 text-emerald-400"></i>
-          <span id="copy-btn-text">Copy All Answers to Clipboard</span>
+          <span id="copy-btn-text">Copy Formal Lab Notebook Calculations</span>
         </button>
       </div>
 
@@ -2159,71 +2022,75 @@
     function executeCalculation() {
       const deltaX = handleB.x - handleA.x;
       const deltaY = handleB.y - handleA.y;
-      const slope = deltaX !== 0 ? (deltaY / deltaX) : 3.42;
+      const slope = deltaX !== 0 ? (deltaY / deltaX) : 3.4166667;
 
-      // Use Point 7 (3.30, 0.18) as reference on line
+      // Reference point chosen on graph line (log10 T = 3.30, log10 P = 0.18)
       const refLogT = 3.30;
       const refLogP = 0.18;
 
       // Stefan-Boltzmann Solver
-      // log P = log(eps * S * sigma) + n * log T
-      // log(eps * S * sigma) = log P - n * log T
-      const logVal = refLogP - (slope * refLogT);
+      // log10(P) = log10(eps * S * sigma) + n * log10(T)
+      // log10(eps * S * sigma) = log10(P) - n * log10(T)
+      const slopeProduct = slope * refLogT;
+      const logVal = refLogP - slopeProduct;
       const epsTimesS_sigma = Math.pow(10, logVal);
       const calculatedSigma = epsTimesS_sigma / SOLVER_MEMORY.epsTimesS;
       const percentageError = Math.abs(calculatedSigma - SOLVER_MEMORY.exactSigma) / SOLVER_MEMORY.exactSigma * 100;
 
       // Update Result Dashboard
-      document.getElementById('res-slope').innerText = slope.toFixed(2);
-      document.getElementById('res-sigma').innerHTML = `${calculatedSigma.toExponential(2)} <span class="text-[10px] text-slate-400">W&middot;m⁻²&middot;K⁻⁴</span>`;
-      document.getElementById('res-error').innerText = `${percentageError.toFixed(1)}%`;
+      const elSlope = document.getElementById('res-slope');
+      const elSigma = document.getElementById('res-sigma');
+      const elError = document.getElementById('res-error');
+      
+      const sigmaExpVal = (calculatedSigma * 1e8).toFixed(2);
+      if (elSlope) elSlope.innerText = slope.toFixed(2);
+      if (elSigma) elSigma.innerHTML = `${sigmaExpVal}&times;10<sup>-8</sup>`;
+      if (elError) elError.innerText = `${percentageError.toFixed(1)}%`;
 
       // Grade badge logic
       const badge = document.getElementById('quality-badge');
-      if (percentageError < 10) {
-        badge.innerText = 'Grade A+ (Optimal)';
-        badge.className = 'text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold uppercase border border-emerald-500/30';
-      } else if (percentageError < 25) {
-        badge.innerText = 'Grade A (Good Lab Standard)';
-        badge.className = 'text-[10px] px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 font-bold uppercase border border-blue-500/30';
-      } else {
-        badge.innerText = 'Warning: High Error';
-        badge.className = 'text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold uppercase border border-amber-500/30';
+      if (badge) {
+        if (percentageError < 10) {
+          badge.innerText = 'Grade A+ (Optimal)';
+          badge.className = 'text-sm px-4 py-2 rounded-xl bg-emerald-500/20 text-emerald-300 font-extrabold uppercase border border-emerald-500/30';
+        } else if (percentageError < 25) {
+          badge.innerText = 'Grade A (Good Lab Standard)';
+          badge.className = 'text-sm px-4 py-2 rounded-xl bg-blue-500/20 text-blue-300 font-extrabold uppercase border border-blue-500/30';
+        } else {
+          badge.innerText = 'Warning: High Error';
+          badge.className = 'text-sm px-4 py-2 rounded-xl bg-amber-500/20 text-amber-300 font-extrabold uppercase border border-amber-500/30';
+        }
       }
 
-      // Update Step-by-Step Vertical Derivations (Pure Top-to-Bottom Flow)
-      // Step 1: Slope
+      // Update Formal Handwritten Lab Format Elements
       const elPoints = document.getElementById('step1-points');
       const elSub1 = document.getElementById('step1-sub');
       const elCalc1 = document.getElementById('step1-calc');
       const elAns1 = document.getElementById('step1-ans');
-      if (elPoints) elPoints.innerText = `Point A(x₁, y₁) = (${handleA.x.toFixed(2)}, ${handleA.y.toFixed(2)}) • Point B(x₂, y₂) = (${handleB.x.toFixed(2)}, ${handleB.y.toFixed(2)})`;
-      if (elSub1) elSub1.innerText = `n = (${handleB.y.toFixed(2)} - (${handleA.y.toFixed(2)})) / (${handleB.x.toFixed(2)} - ${handleA.x.toFixed(2)})`;
+      if (elPoints) elPoints.innerText = `Point A: (x₁, y₁) = (${handleA.x.toFixed(2)}, ${handleA.y.toFixed(2)}) • Point B: (x₂, y₂) = (${handleB.x.toFixed(2)}, ${handleB.y.toFixed(2)})`;
+      if (elSub1) elSub1.innerText = `n = [${handleB.y.toFixed(2)} - (${handleA.y.toFixed(2)})] / [${handleB.x.toFixed(2)} - ${handleA.x.toFixed(2)}]`;
       if (elCalc1) elCalc1.innerText = `n = ${deltaY.toFixed(2)} / ${deltaX.toFixed(2)}`;
       if (elAns1) elAns1.innerText = `${slope.toFixed(2)}`;
 
-      // Step 3: Intercept
       const elSub3 = document.getElementById('step3-sub');
       const elCalc3 = document.getElementById('step3-calc');
       const elAns3 = document.getElementById('step3-ans');
-      if (elSub3) elSub3.innerText = `log₁₀(εSσ) = 0.18 - (${slope.toFixed(2)} × 3.30)`;
-      if (elCalc3) elCalc3.innerText = `log₁₀(εSσ) = 0.18 - ${(slope * 3.30).toFixed(4)}`;
-      if (elAns3) elAns3.innerText = `${logVal.toFixed(4)}`;
+      if (elSub3) elSub3.innerText = `log₁₀(εSσ) = 0.18 - (${slope.toFixed(4)} × 3.30)`;
+      if (elCalc3) elCalc3.innerText = `log₁₀(εSσ) = 0.18 - ${slopeProduct.toFixed(3)} = ${logVal.toFixed(3)}`;
+      const epsSsigmaExp = (epsTimesS_sigma * 1e12).toFixed(2);
+      if (elAns3) elAns3.innerText = `ε S σ = 10^(${logVal.toFixed(3)}) = ${epsSsigmaExp} × 10⁻¹² W`;
 
-      // Step 4: Sigma
       const elSub4 = document.getElementById('step4-sub');
-      const elCalc4 = document.getElementById('step4-calc');
       const elAns4 = document.getElementById('step4-ans');
-      if (elSub4) elSub4.innerText = `σ = 10^(${logVal.toFixed(4)}) / (1.4585 × 10⁻⁴)`;
-      if (elCalc4) elCalc4.innerText = `σ = (${epsTimesS_sigma.toExponential(4)}) / (1.4585 × 10⁻⁴)`;
-      if (elAns4) elAns4.innerText = `${calculatedSigma.toExponential(2)}`;
+      if (elSub4) elSub4.innerText = `σ = (${epsSsigmaExp} × 10⁻¹²) / (1.46 × 10⁻⁴)`;
+      if (elAns4) elAns4.innerText = `${sigmaExpVal} × 10⁻⁸`;
 
-      // Step 5: Percentage Error
       const elSub5 = document.getElementById('step5-sub');
       const elCalc5 = document.getElementById('step5-calc');
       const elAns5 = document.getElementById('step5-ans');
-      if (elSub5) elSub5.innerText = `% Error = (|${calculatedSigma.toExponential(2)} - 5.67×10⁻⁸| / 5.67×10⁻⁸) × 100%`;
-      if (elCalc5) elCalc5.innerText = `% Error = (${Math.abs(calculatedSigma - SOLVER_MEMORY.exactSigma).toExponential(2)} / 5.67×10⁻⁸) × 100%`;
+      const diffSigma = Math.abs(calculatedSigma * 1e8 - 5.67).toFixed(2);
+      if (elSub5) elSub5.innerText = `= [ |${sigmaExpVal} × 10⁻⁸ - 5.67 × 10⁻⁸| / (5.67 × 10⁻⁸) ] × 100%`;
+      if (elCalc5) elCalc5.innerText = `= [ ${diffSigma} / 5.67 ] × 100%`;
       if (elAns5) elAns5.innerText = `${percentageError.toFixed(1)}%`;
 
       renderCanvas();
@@ -2232,45 +2099,77 @@
     function copyToClipboard() {
       const deltaX = handleB.x - handleA.x;
       const deltaY = handleB.y - handleA.y;
-      const slope = (deltaX !== 0 ? (deltaY / deltaX) : 3.42).toFixed(2);
-      const logVal = 0.18 - (slope * 3.30);
-      const calcSigma = (Math.pow(10, logVal) / SOLVER_MEMORY.epsTimesS).toExponential(2);
+      const slope = deltaX !== 0 ? (deltaY / deltaX) : 3.4166667;
+      const slopeVal = slope.toFixed(2);
+      const slopeProd = (slope * 3.30).toFixed(3);
+      const logVal = (0.18 - slope * 3.30).toFixed(3);
+      const epsTimesS_sigma = Math.pow(10, parseFloat(logVal));
+      const epsExp = (epsTimesS_sigma * 1e12).toFixed(2);
+      const calcSigma = epsTimesS_sigma / SOLVER_MEMORY.epsTimesS;
+      const sigmaExpVal = (calcSigma * 1e8).toFixed(2);
+      const diffSigma = Math.abs(parseFloat(sigmaExpVal) - 5.67).toFixed(2);
       const err = (Math.abs(calcSigma - SOLVER_MEMORY.exactSigma) / SOLVER_MEMORY.exactSigma * 100).toFixed(1);
 
-      const txt = `DETERMINATION OF STEFAN-BOLTZMANN CONSTANT (EXP-5)
-------------------------------------------------------------
-STEP 1: SLOPE OF GRAPH II (n)
-Formula: n = (y2 - y1) / (x2 - x1) = Delta Log10(P) / Delta Log10(T)
-Points on Line: A(${handleA.x.toFixed(2)}, ${handleA.y.toFixed(2)}) and B(${handleB.x.toFixed(2)}, ${handleB.y.toFixed(2)})
-Calculation: n = (${handleB.y.toFixed(2)} - (${handleA.y.toFixed(2)})) / (${handleB.x.toFixed(2)} - ${handleA.x.toFixed(2)}) = ${slope}
+      const txt = `CALCULATIONS
 
-STEP 2: CATHODE PARAMETERS
-Formula: Surface Area S = 2 * pi * r * l
-Given: r = 0.31 x 10^-2 m, l = 3.12 x 10^-2 m
-Calculation: S = 2 * 3.1416 * 0.0031 * 0.0312 = 6.08 x 10^-4 m^2
-Emissivity: epsilon = 0.24
-Combined Factor: epsilon * S = 1.459 x 10^-4 m^2
+1. Cathode Surface Area (S):
+Radius, r = 0.31 × 10⁻² m
+Length, l = 3.12 × 10⁻² m
+Emissivity, ε = 0.24
 
-STEP 3: STEFAN'S LAW LOGARITHMIC EQUATION
-Formula: log10(P) = log10(epsilon * S * sigma) + n * log10(T)
-Rearranged: log10(epsilon * S * sigma) = log10(P) - n * log10(T)
-Reference Point on Line: (log10 T = 3.30, log10 P = 0.18)
-Substitution: 0.18 = log10(epsilon * S * sigma) + ${slope} * 3.30
-Result: log10(epsilon * S * sigma) = ${logVal.toFixed(4)}
+Surface Area, S = 2πrl
+S = 2 × 3.1416 × (0.31 × 10⁻²) × (3.12 × 10⁻²)
+S = 6.08 × 10⁻⁴ m²
 
-STEP 4: STEFAN-BOLTZMANN CONSTANT (sigma)
-Formula: sigma = 10^[log10(epsilon * S * sigma)] / (epsilon * S)
-Calculation: sigma = 10^(${logVal.toFixed(4)}) / (1.459 x 10^-4) = ${calcSigma} W m^-2 K^-4
+Effective Radiation Factor:
+ε · S = 0.24 × 6.08 × 10⁻⁴ = 1.46 × 10⁻⁴ m²
 
-STEP 5: PERCENTAGE ERROR
-Formula: Error = (|Measured sigma - Exact sigma| / Exact sigma) * 100%
-Exact Value: sigma_exact = 5.67037 x 10^-8 W m^-2 K^-4
-Calculation: Error = |${calcSigma} - 5.67 x 10^-8| / (5.67 x 10^-8) * 100% = ${err}%`;
+2. Slope of Graph II (n):
+From the straight-line graph of log₁₀(P) vs log₁₀(T), taking two points on the line:
+Point A: (x₁, y₁) = (${handleA.x.toFixed(2)}, ${handleA.y.toFixed(2)})
+Point B: (x₂, y₂) = (${handleB.x.toFixed(2)}, ${handleB.y.toFixed(2)})
+
+Slope, n = (y₂ - y₁) / (x₂ - x₁)
+n = [${handleB.y.toFixed(2)} - (${handleA.y.toFixed(2)})] / [${handleB.x.toFixed(2)} - ${handleA.x.toFixed(2)}]
+n = ${deltaY.toFixed(2)} / ${deltaX.toFixed(2)}
+n = ${slopeVal}
+
+3. Determination of Stefan-Boltzmann Constant (σ):
+According to Stefan's Law:
+P = ε S σ Tⁿ
+Taking log on both sides:
+log₁₀(P) = log₁₀(ε S σ) + n · log₁₀(T)
+log₁₀(ε S σ) = log₁₀(P) - n · log₁₀(T)
+
+Choosing reference point from graph line: (log₁₀ T = 3.30, log₁₀ P = 0.18)
+log₁₀(ε S σ) = 0.18 - (${slope.toFixed(4)} × 3.30)
+log₁₀(ε S σ) = 0.18 - ${slopeProd} = ${logVal}
+
+Taking Antilog:
+ε S σ = 10^(${logVal}) = ${epsExp} × 10⁻¹² W
+
+Now,
+σ = (ε S σ) / (ε S)
+σ = (${epsExp} × 10⁻¹²) / (1.46 × 10⁻⁴)
+σ = ${sigmaExpVal} × 10⁻⁸ W·m⁻²·K⁻⁴
+
+4. Percentage Error:
+Standard value of σ = 5.67 × 10⁻⁸ W·m⁻²·K⁻⁴
+
+Percentage Error = (|Calculated σ - Standard σ| / Standard σ) × 100%
+= (|${sigmaExpVal} × 10⁻⁸ - 5.67 × 10⁻⁸| / 5.67 × 10⁻⁸) × 100%
+= (${diffSigma} / 5.67) × 100%
+= ${err}%
+
+RESULTS:
+1. Slope of Graph II (n) = ${slopeVal}
+2. Stefan-Boltzmann Constant (σ) = ${sigmaExpVal} × 10⁻⁸ W·m⁻²·K⁻⁴
+3. Percentage Error = ${err}%`;
 
       navigator.clipboard.writeText(txt).then(() => {
         const btn = document.getElementById('copy-btn-text');
-        btn.innerText = 'Copied to Clipboard!';
-        setTimeout(() => { btn.innerText = 'Copy All Answers to Clipboard'; }, 2000);
+        btn.innerText = 'Copied Formal Lab Calculations to Clipboard!';
+        setTimeout(() => { btn.innerText = 'Copy Formal Lab Notebook Calculations'; }, 2000);
       });
     }
 
