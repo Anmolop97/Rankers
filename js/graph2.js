@@ -50,7 +50,21 @@ function onSliderChange(val) {
     }
 
     function applyPreset(n) {
-      document.getElementById('slope-slider').value = n;
+      if (Math.abs(n - 3.42) < 0.01) {
+        handleA.x = 2.80;
+        handleA.y = -1.51;
+        handleB.x = 3.40;
+        handleB.y = 0.54;
+        const slider = document.getElementById('slope-slider');
+        if (slider) slider.value = '3.42';
+        const badge = document.getElementById('slider-val-badge');
+        if (badge) badge.innerText = 'n = 3.42';
+        renderCanvas();
+        executeCalculation();
+        return;
+      }
+      const slider = document.getElementById('slope-slider');
+      if (slider) slider.value = n;
       onSliderChange(n);
       executeCalculation();
     }
